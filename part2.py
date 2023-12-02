@@ -16,23 +16,23 @@ numbers = {
 
 
 def getNumberFromReversedString(str):
-  rstr = reversed(str)
+  rstr = ''.join(reversed(str))
   index = len(str)
   num = ""
 
   for key, value in numbers.items():
-    rkey = reversed(key)
-    rvalue = reversed(value)
+    rkey = ''.join(reversed(key))
     if rkey in rstr:
       tempindex = rstr.index(rkey)
       if tempindex < index:
         index = tempindex
         num = value
-    if rvalue in rstr:
-      tempindex = rstr.index(rvalue)
+    if value in rstr:
+      tempindex = rstr.index(value)
       if tempindex < index:
         index = tempindex
         num = value
+
   return num
 
 def getNumberFromString(str):
@@ -56,8 +56,8 @@ def getNumberFromString(str):
 def getCalibrationValueFromString(str):
   x = getNumberFromString(str)
   y = getNumberFromReversedString(str)
-
   cali = x + y
+  print(y)
   return int(cali)
 
 def sumCalibrationValues(pathToFile):
